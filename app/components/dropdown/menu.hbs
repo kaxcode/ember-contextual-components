@@ -1,7 +1,9 @@
 {{#if @isOpen}}
   <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg">
-    <div class="rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-      {{yield}}
+    <div class="rounded-md bg-white shadow-xs py=1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+      {{yield (hash
+        Item=(component 'dropdown/menu/item')
+      )}}
     </div>
   </div>
 {{/if}}
