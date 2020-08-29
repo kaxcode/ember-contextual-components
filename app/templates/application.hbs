@@ -1,5 +1,8 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class="w-screen h-screen pt-12 bg-gray-100 flex justify-center">
+  <Dropdown as |d|>
+    <d.Button @onClick={{this.toggleIsOpen}}/>
+    {{#if this.isOpen}}
+      <d.Menu />
+    {{/if}}
+  </Dropdown>
+</div>
