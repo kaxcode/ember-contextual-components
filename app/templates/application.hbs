@@ -1,8 +1,6 @@
 <div class="w-screen h-screen pt-12 bg-gray-100 flex justify-center">
   <Dropdown as |d|>
-    <d.Button @onClick={{this.toggleIsOpen}}/>
-    {{#if this.isOpen}}
-      <d.Menu />
-    {{/if}}
+    <d.Button/>
+    <d.Menu />
   </Dropdown>
 </div>

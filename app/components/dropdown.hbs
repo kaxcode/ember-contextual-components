@@ -1,6 +1,6 @@
 <div class="relative inline-block text-left">
   {{yield (hash
-    Button=(component 'dropdown/button')
-    Menu=(component 'dropdown/menu')
+    Button=(component 'dropdown/button' onClick=this.toggle)
+    Menu=(component 'dropdown/menu' isOpen=this.isOpen)
   )}}
 </div>
