@@ -1,20 +1,32 @@
-<div class="w-screen h-screen pt-12 bg-gray-100 flex justify-center">
-  <Dropdown as |d|>
-    <d.Button>
-      Menu
-      <svg class="-mr-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-      </svg>
-    </d.Button>
-    <d.Menu as |m|>
-      <m.Item @itemName="Edit"/>
-      <m.Item @itemName="Delete"/>
-      <m.Item @itemName="Archive"/>
-      <m.Divider />
-      <m.Item @itemName="Support"/>
-      <m.Item @itemName="More"/>
-      <m.Divider />
-      <m.Item @itemName="Log out"/>
-    </d.Menu>
-  </Dropdown>
+<div class="p-8 w-screen h-screen pt-12 bg-gray-100 flex flex-col">
+  <div class="flex justify-end">
+    <Dropdown as |d|>
+      <d.Button>
+        Menu
+        <svg class="-mr-1 ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </d.Button>
+      <d.Menu as |m|>
+        <m.Item @name="Edit"/>
+        <m.Item @name="Delete"/>
+        <m.Button @onClick={{this.archive}}>Archive</m.Button>
+        <m.Divider />
+        <m.Item @name="Support"/>
+        <m.Button @onClick={{this.toggleIsShowingMore}} @shouldCloseMenu={{false}}>
+          {{if this.isShowingMore 'Less' 'More'}}
+        </m.Button>
+        <m.Divider />
+        <m.Item @name="Log out"/>
+      </d.Menu>
+    </Dropdown>
+  </div>
+  {{#if this.isShowingMore}}
+   <p>
+     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, unde alias enim tempora aspernatur debitis repellendus deserunt maiores est cumque impedit tenetur ab quae, aliquid nihil. Quas natus ratione voluptatem!
+   </p>
+  {{else}}
+    <div>Showing less info...</div>
+  {{/if}}
+
 </div>
